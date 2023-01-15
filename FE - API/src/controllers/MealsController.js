@@ -13,31 +13,34 @@ class MealsController {
       throw new AppError("Esse prato já está cadastrado!")
     }
 
-    const meal_id = await knex("meals").insert({
+    if (ingredients.length === 0) {
+      throw new AppError("O prato precisa conter no mínimo 1 ingrediente!")
+    }
+
+    await knex("meals").insert({
       title,
       description,
       category,
       price
-    });
+    }).then(async (meal_id) => {
+      let ingredientsInsert;
 
-    const hasOnlyOneIngredient = typeof(ingredients) === "string";
-    let ingredientsInsert;
-
-    if (hasOnlyOneIngredient) {
-      ingredientsInsert = {
-        name: ingredients,
-        meal_id
-      }
-    } else if (ingredients.length > 1) {
-      ingredientsInsert = ingredients.map(name => {
-        return{
-          name,
-          meal_id
+      if (ingredients.length == 1) {
+        ingredientsInsert = {
+          name: ingredients[0],
+          meal_id: meal_id[0]
         }
-      });
-    }
-   
-    await knex("ingredients").insert(ingredientsInsert);
+      } else {
+        ingredientsInsert = ingredients.map(name => {
+          return{
+            name,
+            meal_id
+          }
+        });
+      }
+  
+     await knex("ingredients").insert(ingredientsInsert);
+   });    
 
     return response.status(201).json();
   }
