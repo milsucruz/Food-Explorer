@@ -106,6 +106,7 @@ export const LogOut = styled.button`
   align-items: center;
 
   background: transparent;
+  border: none;
 
   > svg {
     color: ${({theme}) => theme.COLORS.WHITE};
