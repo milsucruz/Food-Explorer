@@ -21,7 +21,7 @@ export default createGlobalStyle`
   body, input, textarea {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    //outline: none;
+    outline: none;
   }
 
   button {
