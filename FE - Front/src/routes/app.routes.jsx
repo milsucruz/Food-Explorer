@@ -6,7 +6,7 @@ import { Details } from "../pages/Details";
 export function AppRoutes(){
   return(
     <Routes>
-      <Route path="details" element={<Details/>} />
+      <Route path="details/:id" element={<Details/>} />
     </Routes>
   )
 }
