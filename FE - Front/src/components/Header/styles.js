@@ -54,7 +54,7 @@ export const Search = styled.div`
   border-radius: 5px;
   width: 41rem;
   height: 4.8rem;
-  background-color: ${({theme}) => theme.COLORS.BACKGROUND_600}; //
+  background-color: ${({theme}) => theme.COLORS.BACKGROUND_600};
   
   label {
     display: flex;
