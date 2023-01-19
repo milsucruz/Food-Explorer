@@ -5,4 +5,6 @@ export const Container = styled.button`
   color: ${({theme}) => theme.COLORS.WHITE};
   border: none;
   font-size: 1.4rem;
+
+  gap: .8rem;
 `;
