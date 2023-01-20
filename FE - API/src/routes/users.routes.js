@@ -10,3 +10,5 @@ userRoutes.post("/", usersController.create);
 userRoutes.put("/:id", usersController.update);
 
 module.exports = userRoutes;
+
+//o middleware ainda não foi aplicado

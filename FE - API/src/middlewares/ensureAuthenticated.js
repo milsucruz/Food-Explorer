@@ -25,3 +25,5 @@ function ensureAuthenticated(request, response, next) {
 }
 
 module.exports = ensureAuthenticated;
+
+//não foi aplicado
