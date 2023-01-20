@@ -62,7 +62,7 @@ class MealsController {
 
     await knex("meals").where({id}).delete();
 
-    response.json();
+    return response.json();
   }
 
   async index (request, response) {
