@@ -12,3 +12,5 @@ async function ensureUserIsAdmin(request, response, next) {
 
   next();
 }
+
+module.exports = ensureUserIsAdmin;
