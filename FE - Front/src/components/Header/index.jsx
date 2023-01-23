@@ -1,10 +1,13 @@
 //Imports
 import logo from '../../assets/logoBlue.svg'
+import { useAuth } from '../../hooks/auth';
 import { TfiReceipt } from 'react-icons/tfi';
 import { FiSearch, FiLogOut } from 'react-icons/fi'
 import { Container, Content, Logo, Search, Button, LogOut} from "./styles";
 
 export function Header() {
+  const { signOut } = useAuth();
+
   return(
     <Container>
       <Content>
@@ -34,7 +37,7 @@ export function Header() {
             <p>Meu pedido (0)</p>
           </Button>
 
-          <LogOut>
+          <LogOut onClick={signOut} >
             <FiLogOut/>
           </LogOut>
        
