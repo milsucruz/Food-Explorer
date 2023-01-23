@@ -53,4 +53,10 @@ export const Form = styled.form`
     color: ${({theme}) => theme.COLORS.GRAY_800}
     }
   }
+
+  .textBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;

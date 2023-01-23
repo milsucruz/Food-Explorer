@@ -1,5 +1,6 @@
 import logo from "../../assets/logoBlue.svg"
 
+import { Link } from "react-router-dom"
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
 import { ButtonText } from '../../components/ButtonText'
@@ -21,17 +22,19 @@ export function SignIn(){
 
         <div className="inputs">
           <p>Email</p>
-          <Input placeholder="Exemplo: exemplo@exemplo.com.br" />
+          <Input type="text" placeholder="Exemplo: exemplo@exemplo.com.br" />
         </div>
 
         <div className="inputs">
           <p>Senha</p>
-          <Input placeholder="No mínimo 6 caracteres" />
+          <Input type="password" placeholder="No mínimo 6 caracteres" />
         </div>
 
         <Button title="Entrar" />
 
-        <ButtonText title="Criar uma conta"/>
+        <Link to="/register" className="textBtn">
+          <ButtonText title="Criar uma conta"  />
+        </Link>
 
       </Form>
     </Container>
