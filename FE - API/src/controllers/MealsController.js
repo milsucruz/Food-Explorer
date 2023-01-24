@@ -45,6 +45,41 @@ class MealsController {
     return response.status(201).json();
   }
 
+  async update (request, response) {
+    const { title, description, category, price, ingredients } = request.body;
+    const { id  } = request.params;
+
+    const meal = await knex("meals").where({ id }).first();
+
+    meal.title = title ?? meal.title;
+    meal.description = description ?? meal.description;
+    meal.category = category ?? meal.category;
+    meal.price = price ?? meal.price;
+
+    await knex("meals").where({ id }).update(meal);
+    await knex("meals").where({ id }).update('updated_at', knex.fn.now());
+
+    // let ingredientsInsert;
+    // if (ingredients.length == 1) {
+    //   ingredientsInsert = {
+    //     name: ingredients[0],
+    //     meal_id: meal_id[0]
+    //   }
+    // } else {
+    //   ingredientsInsert = ingredients.map(name => {
+    //     return{
+    //       name,
+    //       meal_id
+    //     }
+    //   });
+    // }
+
+    // await knex("ingredients").where({meal_id: id}).delete();
+    // await knex("ingredients").where({meal_id: id}).insert(ingredientsInsert);
+
+    return response.status(200).json();
+  }
+
   async show (request, response) {
     const {id} = request.params;
 
