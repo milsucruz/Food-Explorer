@@ -15,7 +15,8 @@ function AuthProvider({children}) {
       localStorage.setItem("@foodexplorer:user", JSON.stringify(user));
       localStorage.setItem("@foodexplorer:token", token);
 
-      api.defaults.headers.authorization = `Baere ${token}`;
+      api.defaults.headers.common['Authorization'] = `Baere ${token}`;
+
       setData({ user, token });
 
     } catch (error) {
@@ -39,7 +40,7 @@ function AuthProvider({children}) {
     const user = localStorage.getItem("@foodexplorer:user");
 
     if(token && user) {
-      api.defaults.headers.authorization = `Baere ${token}`;
+      api.defaults.headers.common['Authorization'] = `Baere ${token}`;
 
       setData({
         token,

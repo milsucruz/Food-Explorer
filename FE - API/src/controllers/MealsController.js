@@ -47,7 +47,7 @@ class MealsController {
 
   async update (request, response) {
     const { title, description, category, price, ingredients } = request.body;
-    const { id  } = request.params;
+    const {id} = request.params
 
     const meal = await knex("meals").where({ id }).first();
 
@@ -59,23 +59,24 @@ class MealsController {
     await knex("meals").where({ id }).update(meal);
     await knex("meals").where({ id }).update('updated_at', knex.fn.now());
 
-    // let ingredientsInsert;
-    // if (ingredients.length == 1) {
-    //   ingredientsInsert = {
-    //     name: ingredients[0],
-    //     meal_id: meal_id[0]
-    //   }
-    // } else {
-    //   ingredientsInsert = ingredients.map(name => {
-    //     return{
-    //       name,
-    //       meal_id
-    //     }
-    //   });
-    // }
 
-    // await knex("ingredients").where({meal_id: id}).delete();
-    // await knex("ingredients").where({meal_id: id}).insert(ingredientsInsert);
+    let ingredientsInsert;
+    if (ingredients.length == 1) {
+      ingredientsInsert = {
+        name: ingredients[0],
+        meal_id: meal.id
+      }
+    } else {
+      ingredientsInsert = ingredients.map(name => {
+        return{
+          name,
+          meal_id: meal.id
+        }
+      });
+    }
+
+    await knex("ingredients").where({meal_id: id}).delete();
+    await knex("ingredients").where({meal_id: id}).insert(ingredientsInsert);
 
     return response.status(200).json();
   }

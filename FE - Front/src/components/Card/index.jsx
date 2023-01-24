@@ -17,7 +17,7 @@ export function Card() {
        <div className="product">
           <img src={dishe} alt="" />
           <h2 className="productTitle" >Spaguetti Gambe</h2>
-          <p className="productDescription" >Massa freca com camarões e pesto.</p>
+          <p className="productDescription" >Massa fresca com camarões e pesto.</p>
           <h1 className="productPrice" >R$ 79,97</h1>
 
           <PurchaseSection>
