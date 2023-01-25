@@ -77,7 +77,11 @@ export function New() {
     });
 
     alert("Prato cadastrado com sucesso!");
-    //navigate("/");
+    //navigate("/"); ============================================================
+  }
+
+  function handleHome() {
+    navigate("/")
   }
 
   return(
@@ -88,7 +92,7 @@ export function New() {
           
             <Content>
               <header>
-                <ButtonText title="Voltar" icon={AiOutlineLeft} className="textBtn" />
+                <ButtonText title="Voltar" icon={AiOutlineLeft} className="textBtn" onClick={handleHome} />
                 <h1 className="title" >Adicionar prato</h1>
               </header>
 

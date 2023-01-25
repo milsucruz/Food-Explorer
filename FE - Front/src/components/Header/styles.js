@@ -45,6 +45,19 @@ export const Logo = styled.div`
     display: flex;
     gap: 1.123rem;
   }
+
+  .logo{
+
+    > p {
+      display: flex;
+      justify-content: end;
+
+      font-size: 1.2rem;
+
+      color: ${({theme}) => theme.COLORS.BLUE_100};
+    }
+  }
+
 `;
 
 
