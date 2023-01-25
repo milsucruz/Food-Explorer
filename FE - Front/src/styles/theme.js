@@ -6,6 +6,7 @@ export default {
     BACKGROUND_600: "#0D1D25", /*Inputs background*/
     
     FULL_BLACK: "#000000", /*Full Black (100%)*/
+    BLACK_900: "#0D161B",
 
     WHITE: "#FFFFFF", /*Text*/
     WHITE_100: "#E1E1E6", /*Meals title*/
