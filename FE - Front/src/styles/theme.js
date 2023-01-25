@@ -19,6 +19,7 @@ export default {
 
     GRAY_900: "#7C7C8A", /*Inputs text*/
     GRAY_800: "#C4C4CC", /*Descriptions/label text*/
+    GRAY_700: "#76797B", /*Noteitem*/
 
     RED: "#92000E", /*Buttons background*/
   

@@ -5,6 +5,7 @@ import { Header } from "../../components/Header"
 import { ButtonText } from "../../components/ButtonText"
 import { Input } from "../../components/Input"
 import { Textarea } from "../../components/Textarea";
+import { Noteitem } from "../../components/Noteitem";
 import { Footer } from "../../components/Footer"
 
 import { AiOutlineLeft } from "react-icons/ai"
