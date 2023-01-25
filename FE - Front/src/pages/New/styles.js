@@ -81,7 +81,7 @@ export const Form = styled.div`
    }
  }
 
-  .nameBox {
+  .titleBox {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
@@ -99,18 +99,6 @@ export const Form = styled.div`
     gap: 1.6rem;
 
     width: 36rem;
-
-    > p {
-      color: ${({theme}) => theme.COLORS.GRAY_800};
-    }
-  }
-
-  .ingredientsBox {
-    display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
-
-    width: 83.7rem;
 
     > p {
       color: ${({theme}) => theme.COLORS.GRAY_800};
@@ -142,5 +130,36 @@ export const Form = styled.div`
       color: ${({theme}) => theme.COLORS.GRAY_800};
     }
   }
+
+  .saveBtn {
+    margin-left: 90.9rem;
+  }
+  
+`;
+
+export const IngredientsSection = styled.div`
+display: flex;
+flex-direction: column;
+gap: 1.6rem;
+
+> span {
+    color: ${({theme}) => theme.COLORS.GRAY_800};
+  }
+
+.ingredientsBox {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    
+    height: 4.8rem;
+    width: 83.7rem;
+    padding: .8rem;
+
+    border-radius: .8rem;
+    
+    background-color: ${({theme}) => theme.COLORS.BLACK_900};
+  }
+
+  
   
 `;

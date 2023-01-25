@@ -9,13 +9,13 @@ export const Container = styled.div`
 
   border: ${({theme, isNew}) => isNew ? `1px dashed ${theme.COLORS.GRAY_700}` : "none"};
 
-  margin-bottom: .8rem;
   border-radius: .8rem;
   padding-right: 1.6rem;
   
   > button {
     border: none;
     background: none;
+    display: flex;
   }
 
   .button-delete {
@@ -27,8 +27,8 @@ export const Container = styled.div`
   }
 
   > input {
-    height: 5.6rem;
-    width: 100%;
+    height: 3.2rem;
+    max-width: 10rem;
     
     padding: 1.2rem;
     color: ${({theme}) => theme.COLORS.WHITE};
