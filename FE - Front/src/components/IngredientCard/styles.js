@@ -9,14 +9,9 @@ export const Container = styled.div`
   color: ${({theme}) => theme.COLORS.WHITE};
 
   border-radius: .5rem;
-  padding: .4rem .8rem;
-
-  max-width: 10rem;
-  width: 80%;
   height: 3.2rem;
   
-`;
-
-export const Card = styled.div`
-
+  > span {
+    padding: 1.6rem;
+  }
 `;

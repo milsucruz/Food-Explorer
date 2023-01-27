@@ -1,19 +1,32 @@
 //
+import { api } from "../../services/api"
+import { useState, useEffect } from "react"
+import { useNavigate, useParams } from "react-router-dom"
+
 import { Button } from "../../components/Button"
 import { Header } from "../../components/Header"
 import { Footer } from "../../components/Footer"
 import { ButtonText } from "../../components/ButtonText"
+import { IngredientCard } from "../../components/IngredientCard"
 
 import { AiOutlineLeft, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import { TfiReceipt } from 'react-icons/tfi';
 
 import { Container, Content, Main, Ingredients, PurchaseSection } from "./styles"
 
-
-import { useNavigate } from "react-router-dom"
-
-
 export function Details () {
+  const [data, setData] = useState(null);
+  const params = useParams();
+  
+  const imageURL = data && `${api.defaults.baseURL}/files/${data.image}`;
+
+  useEffect(() => {
+    async function fetchMeal() {
+      const response = await api.get(`/meals/${params.id}`);
+      setData(response.data);
+    }
+    fetchMeal();
+  }, []);
 
   const navigate = useNavigate();
 
@@ -31,51 +44,40 @@ export function Details () {
       <Content>
 
           <div className="meal">
-            
+            <img src={imageURL} alt="Imagem do prato" />
           </div>
 
-        <Main>
+          {data && (
+            <Main>
             <div className="infos">
-              <h1>Salada Ravanello</h1>
-              <h2>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</h2>
+              <h1>{data.title}</h1>
+              <h2>{data.description}</h2>
             </div>
 
-          <Ingredients>
-            <div className="ingredientSection">
-              
-              <p>alface</p>
-            </div>
+            <Ingredients>
+              {data.ingredients.map((ingredient) => (
+                <IngredientCard
+                key={ingredient.id}
+                ingredient={ingredient.name}
+                />
+              ))}
+            </Ingredients>
 
-            <div className="ingredientSection">
-              
-              <p>tomate</p>
-            </div>
+            <PurchaseSection>
+              <h1>R$ {data.price}</h1>
+            
+              <div className="productQuantity">
+                <ButtonText icon={AiOutlineMinus} />
+                <span>01</span>
+                <ButtonText icon={AiOutlinePlus} />
 
-            <div className="ingredientSection">
-              
-              <p>rabanete</p>
-            </div>
+                <Button title="Incluir" icon={TfiReceipt} className="includeBtn" />
+              </div>
 
-            <div className="ingredientSection">
-              
-              <p>pão naan</p>
-            </div>
-          </Ingredients>
-
-          <PurchaseSection>
-            <h1>R$ 25,97</h1>
-          
-            <div className="productQuantity">
-              <ButtonText icon={AiOutlineMinus} />
-              <span>01</span>
-              <ButtonText icon={AiOutlinePlus} />
-
-              <Button title="Incluir" icon={TfiReceipt} className="includeBtn" />
-            </div>
-
-          </PurchaseSection>
-          
-        </Main>
+            </PurchaseSection>
+            
+            </Main>
+          )}
 
       </Content>
 

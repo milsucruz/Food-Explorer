@@ -1,7 +1,4 @@
-import { Container, Card } from "./styles";
-import {api} from "../../services/api";
-import { useState } from "react";
-
+import { Container } from "./styles";
 
 export function IngredientCard({ingredient}) {
   return(

@@ -7,6 +7,7 @@ export default {
     
     FULL_BLACK: "#000000", /*Full Black (100%)*/
     BLACK_900: "#0D161B",
+    BLACK_800: "#192227",
 
     WHITE: "#FFFFFF", /*Text*/
     WHITE_100: "#E1E1E6", /*Meals title*/
