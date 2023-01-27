@@ -57,7 +57,7 @@ export function Header() {
           ? 
           (<Button type='button' onClick={handleNewMeal} ><p>Novo prato</p> </Button>) 
           : 
-          (<Button type='button'> <TfiReceipt size={24}/> <p>Meu pedido (0)</p> </Button>)
+          (<Button type='button'> <TfiReceipt size={24}/> <p>Pedidos(0)</p> </Button>)
           }
 
           <LogOut onClick={signOut} >

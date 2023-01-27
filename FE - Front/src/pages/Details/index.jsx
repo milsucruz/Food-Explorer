@@ -9,11 +9,7 @@ import { TfiReceipt } from 'react-icons/tfi';
 
 import { Container, Content, Main, Ingredients, PurchaseSection } from "./styles"
 
-import product from "../../assets/ravanello.png"
-import Ingredient1 from "../../assets/alface.png"
-import Ingredient2 from "../../assets/tomate.png"
-import Ingredient3 from "../../assets/rabanete.png"
-import Ingredient4 from "../../assets/pao-naan.png"
+
 import { useNavigate } from "react-router-dom"
 
 
@@ -35,7 +31,7 @@ export function Details () {
       <Content>
 
           <div className="meal">
-            <img src={product} alt="Prato" />
+            
           </div>
 
         <Main>
@@ -46,22 +42,22 @@ export function Details () {
 
           <Ingredients>
             <div className="ingredientSection">
-              <img src={Ingredient1} alt="" />
+              
               <p>alface</p>
             </div>
 
             <div className="ingredientSection">
-              <img src={Ingredient2} alt="" />
+              
               <p>tomate</p>
             </div>
 
             <div className="ingredientSection">
-              <img src={Ingredient3} alt="" />
+              
               <p>rabanete</p>
             </div>
 
             <div className="ingredientSection">
-              <img src={Ingredient4} alt="" />
+              
               <p>pão naan</p>
             </div>
           </Ingredients>
