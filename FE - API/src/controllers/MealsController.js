@@ -1,7 +1,7 @@
 //Imports
 const knex = require("../database/knex");
 const AppError = require("../utils/AppError");
-
+const DiskStorage = require("../providers/DiskStorage");
  
 class MealsController {
   async create (request, response) {
@@ -13,36 +13,40 @@ class MealsController {
       throw new AppError("Esse prato já está cadastrado!")
     }
 
-    if (ingredients.length === 0) {
-      throw new AppError("O prato precisa conter no mínimo 1 ingrediente!")
+    const imageFileName = request.file.filename;
+    const diskStorage = new DiskStorage()
+    const filename = await diskStorage.saveFile(imageFileName);
+
+   
+    const meal_id = await knex("meals").insert({
+        image: filename,
+        title,
+        description,
+        price,
+        category,
+    });
+
+    const oneIngredient = typeof(ingredients) === "string";
+    let ingredientsInsert;
+
+    if (oneIngredient) {
+        ingredientsInsert = {
+            name: ingredients,
+            meal_id: meal_id[0]
+        }
+
+    } else if (ingredients.length > 1) {
+        ingredientsInsert = ingredients.map(name => {
+            return {
+                name,
+                meal_id
+            }
+        });
     }
 
-    await knex("meals").insert({
-      title,
-      description,
-      category,
-      price
-    }).then(async (meal_id) => {
-      let ingredientsInsert;
+    await knex("ingredients").insert(ingredientsInsert);
 
-      if (ingredients.length == 1) {
-        ingredientsInsert = {
-          name: ingredients[0],
-          meal_id: meal_id[0]
-        }
-      } else {
-        ingredientsInsert = ingredients.map(name => {
-          return{
-            name,
-            meal_id
-          }
-        });
-      }
-  
-     await knex("ingredients").insert(ingredientsInsert);
-   });    
-
-    return response.status(201).json();
+    return response.status(201).json(); 
   }
 
   async update (request, response) {

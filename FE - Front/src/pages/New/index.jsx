@@ -20,7 +20,7 @@ import { Container, Content, Form, IngredientsSection } from "./styles";
 
 
 export function New() {
-
+  const [image, setImage] = useState(null)
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
@@ -44,6 +44,10 @@ export function New() {
   }
 
   async function handleNewMeal() {
+    if(!image) {
+      return alert("Defina uma imagem para o prato!")
+    }
+
     if(!title) {
       return alert("Defina uma título para o prato!")
     }
@@ -68,16 +72,20 @@ export function New() {
       return alert("Adicione pelo menos um ingrediente ao prato!");
     }
 
-    await api.post("/meals", {
-      title,
-      category,
-      price,
-      description,
-      ingredients
-    });
+    const data = new FormData();
 
+    data.append("image", image)
+    data.append("title", title)
+    data.append("category", category)
+    data.append("price", price)
+    data.append("description", description)
+    
+    ingredients.map(ingredient => data.append("ingredients", ingredient))
+
+    api.post("/meals", data);
+  
     alert("Prato cadastrado com sucesso!");
-    //navigate("/"); ============================================================
+
   }
 
   function handleHome() {
@@ -109,7 +117,7 @@ export function New() {
                         <input
                           id="image"
                           type="file"
-                          onChange={(e) => setImageFile(e.target.files[0])}
+                          onChange={(e) => setImage(e.target.files[0])}
                         />
                       </div>
                     </label>
