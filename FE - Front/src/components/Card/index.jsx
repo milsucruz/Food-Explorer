@@ -5,11 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../Button"
 import { ButtonText } from "../ButtonText"
 import { Container, Content, PurchaseSection } from "./styles";
-import {AiOutlineHeart, AiFillHeart, AiOutlineMinus, AiOutlinePlus} from 'react-icons/ai'
+
 import { BiPencil } from 'react-icons/bi'
-
-import dishe from '../../assets/spaguetti.png'
-
+import {AiOutlineHeart, AiFillHeart, AiOutlineMinus, AiOutlinePlus} from 'react-icons/ai'
 
 export function Card({ meal }) {
 
@@ -17,24 +15,34 @@ export function Card({ meal }) {
 
   const {user} = useAuth();
 
+  const navigate = useNavigate();
+
+  function handleDetails() {
+    navigate(`/details/${meal.id}`)
+  }
   return(
     <Container >
       <Content>
 
         {user.isAdm ? (
-        <button className="fav">
-          <BiPencil/>
-        </button>
-        )
-         :
-        (
-        <button className="fav">
-        <AiOutlineHeart/>
-        </button>) }
+          <button className="fav">
+            <BiPencil/>
+          </button>
+          )
+          :
+          (
+          <button className="fav">
+           <AiOutlineHeart/>
+          </button>
+        ) }
 
        <div className="product">
-          <img src={imageURL} alt="" />
-          <h2 className="productTitle" > {meal.title} </h2>
+          
+          <button className="detailsBtn" onClick={handleDetails} >
+            <img src={imageURL} alt="" />
+            <h2 className="productTitle" > {meal.title} </h2>
+          </button>
+
           <p className="productDescription" > {meal.description} </p>
           <h1 className="productPrice" > {meal.price} </h1>
 

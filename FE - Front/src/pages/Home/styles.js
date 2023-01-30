@@ -19,7 +19,7 @@ export const Banner = styled.div`
 
   position: relative;
 
-  width: 120rem;
+  width: 140rem;
   height: 26rem;
 
   margin: 16.4rem 0 6.4rem 0;
@@ -63,5 +63,5 @@ export const Menu = styled.div`
   
   margin-bottom: 8rem;
 
-  width: 120rem;
+  width: 150rem;
 `;

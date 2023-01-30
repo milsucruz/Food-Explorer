@@ -4,7 +4,7 @@ export const Container = styled.div`
   padding-inline: 4rem;
   
   > h2 {
-    margin-bottom: 4rem;
+    margin: 0 0 4rem 2rem;
     font-size: 3.2rem;
     color: ${({theme}) => theme.COLORS.WHITE};
   }
@@ -12,10 +12,17 @@ export const Container = styled.div`
 
 export const Slider = styled.div`
   position: relative;
-  max-width: 136.8rem;
+  max-width: 100%;
+  height: 51.2rem;
 
   .productMenu {
     display: flex;
+    gap: 2.7rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   .leftBtn, .rightBtn {
@@ -25,7 +32,6 @@ export const Slider = styled.div`
     width: 11.6rem;
     padding-inline: 1rem;
     color: ${({theme}) => theme.COLORS.WHITE};
-    //display: none;
   }
 
   .leftBtn{
@@ -33,6 +39,11 @@ export const Slider = styled.div`
     left: 0;
     border: none;
     background: linear-gradient(90deg, rgba(0, 10, 15, 0.272541) 0%, #000A0F 100%);
+    transform: matrix(-1, 0, 0, -1, 0, 0);
+    
+    > svg { 
+      transform: matrix(-1, 0, 0, -1, 0, 0);
+    }
   }  
 
   .rightBtn{
@@ -42,6 +53,4 @@ export const Slider = styled.div`
     border: none;
     background: linear-gradient(90deg, rgba(0, 10, 15, 0.272541) 0%, #000A0F 100%);
   }  
-
-
 `;

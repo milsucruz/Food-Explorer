@@ -1,39 +1,35 @@
+import { Card } from "../Card"
+import { useRef } from "react";
 import { Container, Slider } from "./styles";
 import {AiOutlineRight, AiOutlineLeft} from "react-icons/ai"
-import { useState, useEffect } from "react";
-import { api } from "../../services/api";
 
-import { Card } from "../Card"
+export function Carousel({ title, children }) {
 
-export function Carousel({ title }) {
-  const [meals, setMeals] = useState([]);
-  async function fetchMeals() {
-    const response = await api.get(`/meals`);
-    setMeals(response.data);
+  const slider = useRef(null);
+
+  function handleLeftBtn(e) {
+    e.preventDefault();
+    slider.current.scrollLeft -= slider.current.offsetWidth;
   }
-
-  useEffect(() => {
-    fetchMeals();
-  }, [])
+  function handleRightBtn(e) {
+    e.preventDefault();
+    slider.current.scrollLeft += slider.current.offsetWidth;
+  }
 
   return(
     <Container>
       <h2> {title} </h2>
 
         <Slider>
-          <button className="leftBtn">
+          <button className="leftBtn" onClick={handleLeftBtn} >
             <AiOutlineLeft size={40} />
           </button>
 
-          <div className="productMenu"> 
-            {meals.map((meal) => {
-              return(
-                <Card meal={meal} key={meal.id} />
-              )
-            })}
+          <div className="productMenu" ref={slider} > 
+            {children}
           </div>
 
-          <button className="rightBtn">
+          <button className="rightBtn"  onClick={handleRightBtn} >
             <AiOutlineRight size={40} />
           </button>
         </Slider>

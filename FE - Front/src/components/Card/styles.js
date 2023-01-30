@@ -39,20 +39,31 @@ position: relative;
 
     padding: 5.6rem 2rem;
 
-    > img {
+    .detailsBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    background-color: transparent;
+    border: none;
+
+     img {
       width: 17.6rem;
       height: 17.6rem;
       object-fit: cover;
+  
+    }
+
+    .productTitle {
+        font-size: 2.4rem;
+        color: ${({theme}) => theme.COLORS.WHITE};
     }
   }
-
-  .productTitle {
-      font-size: 2.4rem;
-      color: ${({theme}) => theme.COLORS.WHITE};
-    }
+  }
 
   .productDescription {
       width: 22rem;
+      height: 4.4rem;
       text-align: center;
 
       font-size: 1.4rem;

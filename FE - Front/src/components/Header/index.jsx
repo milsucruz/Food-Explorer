@@ -1,15 +1,41 @@
 //Imports
 import logo from '../../assets/logoBlue.svg'
+import { api } from "../../services/api"
 import { useAuth } from '../../hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
 import { TfiReceipt } from 'react-icons/tfi';
 import { FiSearch, FiLogOut } from 'react-icons/fi'
+
 import { Container, Content, Logo, Search, Button, LogOut} from "./styles";
 
-export function Header() {
+export function Header({ setMeals }) {
   const {user} = useAuth();
   const { signOut } = useAuth();
   const navigate = useNavigate();
+
+  const [search, setSearch] = useState("")
+
+  useEffect(() => {
+    if(search.length > 0 && window.location.pathname == '/') {
+      const fetchMeals = async () => {  
+        const response = await api.get(`/meals?title=${search}`)
+    
+        setMeals(response.data)
+      }
+      fetchMeals()
+    } else if(search.length == 0 ){
+      if(setMeals){
+      const fetchMeals = async () => {
+        const response = await api.get(`/meals`)
+
+        setMeals(response.data)
+      }
+      fetchMeals()
+      }
+    }
+  }, [search])
 
   function handleNewMeal () {
     navigate("/new")
@@ -49,7 +75,7 @@ export function Header() {
           <Search>
             <label>
               <FiSearch size={24}/>
-              <input type="text" placeholder='Busque por pratos ou ingredientes' />
+              <input type="text" placeholder='Busque por pratos ou ingredientes' onChange={(e) => setSearch(e.target.value)} />
             </label>
           </Search>
 
