@@ -123,8 +123,12 @@ class MealsController {
       .orderBy("meals.title")
     }
 
+    else if (title) {
+      meals = await knex("meals").whereLike("meals.title", `%${title}%`).orderBy("title")
+    }
+
     else {
-      meals = await knex("meals").whe("title", `%${title}%`).orderBy("title")
+      meals = await knex("meals").orderBy("title")
     }
 
     const mealsIngredients = await knex("ingredients")

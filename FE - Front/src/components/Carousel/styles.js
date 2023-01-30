@@ -14,14 +14,8 @@ export const Slider = styled.div`
   position: relative;
   max-width: 136.8rem;
 
-  .menu{
+  .productMenu {
     display: flex;
-    gap: 2.7rem;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    ::-webkit-scrollbar{
-      display: none;
-    }
   }
 
   .leftBtn, .rightBtn {
@@ -48,4 +42,6 @@ export const Slider = styled.div`
     border: none;
     background: linear-gradient(90deg, rgba(0, 10, 15, 0.272541) 0%, #000A0F 100%);
   }  
+
+
 `;

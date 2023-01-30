@@ -6,6 +6,21 @@ import { Footer } from "../../components/Footer";
 import { Container, Content, Banner, Slogan, Menu } from "./styles";
 
 export function Home() {
+  const categories = [
+    {
+      id: 1,
+      title: "Pratos principais"
+    },
+    {
+      id: 2,
+      title: "Sobremesas"
+    },
+    {
+      id: 3,
+      title: "Bebidas"
+    },
+  ]
+
   return(
     <Container>
         <Header/>
@@ -21,9 +36,11 @@ export function Home() {
             </Banner>
 
             <Menu>
-              <Carousel/>
-              <Carousel/>
-              <Carousel/>
+              {categories.map((category) => {
+                return(
+                  <Carousel title={category.title} key={category.id} />
+                )
+              })}
             </Menu>
 
           </Content>
