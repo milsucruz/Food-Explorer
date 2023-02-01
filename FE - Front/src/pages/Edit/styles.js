@@ -131,8 +131,17 @@ export const Form = styled.div`
     }
   }
 
-  .saveBtn {
-    margin-left: 90.9rem;
+  .buttons {
+    margin-left: 66rem;
+
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+
+  }
+
+  .deleteBtn{
+    background-color: ${({theme}) => theme.COLORS.BLACK_900};
   }
   
 `;

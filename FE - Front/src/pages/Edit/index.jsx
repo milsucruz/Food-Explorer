@@ -98,6 +98,15 @@ export function Edit() {
     setIngredients(ingredients.map(ingredient => ingredient.name));
   }
 
+  function handlDeleteMeal() {
+    const confirm = window.confirm("Confirma que deseja deletar o prato? Uma vez confirmado, não há volta!")
+
+    if(confirm) {
+      api.delete(`/meals/${params.id}`);
+      navigate("/")
+    }
+  }
+
   useEffect(() => {
     fetchMeal()
   }, [])
@@ -187,9 +196,15 @@ export function Edit() {
                   />
                 </div>
 
-                  <Button className="saveBtn" onClick={handleEditMeal} >
-                    <p>Salvar prato</p>
+                <div className="buttons">
+                  <Button className="deleteBtn" onClick={handlDeleteMeal}  >
+                    <p>Excluir prato</p>
                   </Button>
+
+                  <Button className="saveBtn" onClick={handleEditMeal} >
+                      <p>Salvar alterações</p>
+                  </Button>
+                </div>
               
               </Form>
 
