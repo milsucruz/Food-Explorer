@@ -26,6 +26,11 @@ export const Container = styled.div`
       color: ${({theme}) => theme.COLORS.GRAY_900};
     }
 
+    @media (max-width: 1000px) {
+    border: none;
+    background-color: ${({theme}) => theme.COLORS.BACKGROUND_600};
+  }
+
   }
   
   > svg {

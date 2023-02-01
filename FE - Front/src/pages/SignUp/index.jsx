@@ -8,7 +8,7 @@ import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { ButtonText } from '../../components/ButtonText';
 
-import { Container, Logo, Form } from "./styles";
+import { Container, Form } from "./styles";
 
 export function SignUp(){
   const [name, setName] = useState("");
@@ -40,12 +40,11 @@ export function SignUp(){
 
   return(
     <Container>
-      <Logo>
+
         <div className="logo">
             <img src={logo} alt="Logo do Food Explorer"/>
             <h1>Food Explorer</h1>
         </div>
-      </Logo>
 
       <Form>
         <h1>Crie sua conta</h1>

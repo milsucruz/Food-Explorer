@@ -9,7 +9,7 @@ import { ButtonText } from '../../components/ButtonText'
 
 import { useAuth } from "../../hooks/auth"
 
-import { Container, Logo, Form } from "./styles";
+import { Container,Form } from "./styles";
 
 export function SignIn(){
   const [email, setEmail] = useState("");
@@ -23,12 +23,11 @@ export function SignIn(){
 
   return(
     <Container>
-      <Logo>
+
         <div className="logo">
             <img src={logo} alt="Logo do Food Explorer"/>
             <h1>Food Explorer</h1>
         </div>
-      </Logo>
 
       <Form>
         <h1>Faça login</h1>

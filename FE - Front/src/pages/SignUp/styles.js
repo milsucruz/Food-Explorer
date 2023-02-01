@@ -7,25 +7,24 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  gap: 30rem;
-  `;
+  gap: 20rem;
 
-export const Logo = styled.div`
-  display: flex;
-  align-items: center;
-  
-  
   .logo{
     display: flex;
     gap: 2rem;
   }
 
   h1{
-    font-size: 4.24815rem;
+    font-size: 4.25rem;
     font-weight: 700;
     color: ${({theme}) => theme.COLORS.WHITE};
   }
 
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    padding: 15px;
+    gap: .5rem;
+  }
 `;
 
 export const Form = styled.form`
@@ -58,5 +57,13 @@ export const Form = styled.form`
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  @media (max-width: 1000px) {
+    > h1 {
+      display: none;
+    }
+    background-color: transparent;
+    gap: 3.2rem;
   }
 `;
