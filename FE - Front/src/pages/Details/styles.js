@@ -79,19 +79,11 @@ export const Ingredients = styled.div`
 export const PurchaseSection = styled.div`
   display: flex;
   align-items: center;
-  gap: 5rem;
-
-  > h1 {
-    font-family: 'Roboto';
-    font-weight: 400;
-    font-size: 3.2rem;
-    color: ${({ theme }) => theme.COLORS.BLUE_100};
-  }
 
   .productQuantity{
     display: flex;
     align-items: center;
-    gap: 1.4rem;
+    gap: 3.3rem;
   }
 
   .includeBtn {
@@ -100,5 +92,13 @@ export const PurchaseSection = styled.div`
     font-size: 1.4rem;
 
     margin-left: 2.4rem;
+  }
+
+  .editBtn {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+
+    width: 15rem;
   }
 `;

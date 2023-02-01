@@ -20,12 +20,17 @@ export function Card({ meal }) {
   function handleDetails() {
     navigate(`/details/${meal.id}`)
   }
+
+  function handleEdit() {
+    navigate(`/edit/${meal.id}`)
+  }
+
   return(
     <Container >
       <Content>
 
         {user.isAdm ? (
-          <button className="fav">
+          <button className="fav" onClick={handleEdit} >
             <BiPencil/>
           </button>
           )

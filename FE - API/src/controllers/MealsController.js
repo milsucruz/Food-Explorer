@@ -55,6 +55,16 @@ class MealsController {
 
     const meal = await knex("meals").where({ id }).first();
 
+    const imageFileName = request.file.filename;
+    const diskStorage = new DiskStorage();
+
+    if(meal.image) {
+      await diskStorage.deleteFile(meal.image);
+    }
+
+    const filename = await diskStorage.saveFile(imageFileName);
+
+    meal.image = filename;
     meal.title = title ?? meal.title;
     meal.description = description ?? meal.description;
     meal.category = category ?? meal.category;
@@ -63,17 +73,18 @@ class MealsController {
     await knex("meals").where({ id }).update(meal);
     await knex("meals").where({ id }).update('updated_at', knex.fn.now());
 
+    const oneIngredient = typeof(ingredients) === "string";
 
     let ingredientsInsert;
-    if (ingredients.length == 1) {
+    if (oneIngredient) {
       ingredientsInsert = {
-        name: ingredients[0],
+        name: ingredients,
         meal_id: meal.id
       }
-    } else {
-      ingredientsInsert = ingredients.map(name => {
+    } else if (ingredients.length > 1) {
+      ingredientsInsert = ingredients.map(ingredient => {
         return{
-          name,
+          name: ingredient,
           meal_id: meal.id
         }
       });
