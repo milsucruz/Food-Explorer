@@ -81,7 +81,7 @@ export function Details () {
                       <span>01</span>
                       <ButtonText icon={AiOutlinePlus} />
 
-                      <Button title={`Incluir ∙ R$ ${data.price}`} icon={TfiReceipt} className="includeBtn" />
+                      <Button title={`Pedir ∙ R$ ${data.price}`} className="includeBtn" />
                   </div>
                 )}
 

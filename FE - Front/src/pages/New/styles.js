@@ -159,7 +159,4 @@ gap: 1.6rem;
     
     background-color: ${({theme}) => theme.COLORS.BLACK_900};
   }
-
-  
-  
 `;
