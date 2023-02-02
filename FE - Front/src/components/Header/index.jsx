@@ -8,6 +8,8 @@ import { useState, useEffect } from 'react';
 import { TfiReceipt } from 'react-icons/tfi';
 import { FiSearch, FiLogOut } from 'react-icons/fi'
 
+import { NavBar } from "../NavBar"
+
 import { Container, Content, Logo, Search, Button, LogOut} from "./styles";
 
 export function Header({ setMeals }) {
@@ -43,6 +45,7 @@ export function Header({ setMeals }) {
 
   return(
     <Container>
+      <NavBar/>
       <Content>
 
         {user.isAdm ? (

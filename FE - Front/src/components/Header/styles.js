@@ -7,6 +7,13 @@ export const Container = styled.header`
   justify-content: center;
 
   background-color: ${({theme}) => theme.COLORS.BACKGROUND_800};
+/* 
+  @media (max-width: 1000px) {
+    .Nav-bar {
+      display: none;
+    }
+  } */
+
 `;
 
 export const Content = styled.div`
@@ -14,7 +21,7 @@ export const Content = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 3.2rem;
-  padding: 2.8rem 12.3rem;
+  padding: 2.8rem;
 
   .menuNavigation {
     display: flex;
@@ -30,6 +37,10 @@ export const Content = styled.div`
     }
   }
 
+  @media only screen and (max-width: 1000px) {
+    display: none;
+  }
+ 
 `;
 
 export const Logo = styled.div`
@@ -37,7 +48,7 @@ export const Logo = styled.div`
   align-items: center;
   
    h1{
-    font-size: 2.51109rem;
+    font-size: 2.5rem;
     color: ${({theme}) => theme.COLORS.WHITE};
   }
   
@@ -58,6 +69,11 @@ export const Logo = styled.div`
     }
   }
 
+  @media (max-width: 1020px) {
+    h1 {
+      font-size: 2rem;
+    }
+  }
 `;
 
 
