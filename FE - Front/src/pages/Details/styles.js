@@ -27,7 +27,7 @@ align-items: center;
 justify-content: center;
 gap: 8rem;
 
-margin: 10rem 0 18rem 0 ;
+margin: 10rem 0 22rem 0 ;
 
 .meal img {
   width: 38.947rem;
