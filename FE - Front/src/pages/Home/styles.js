@@ -10,6 +10,13 @@ export const Content = styled.div`
   align-items: center;
 
   width: 100%;
+
+  @media (max-width: 1000px) {
+    max-width: 50rem;
+    margin: 0 auto;
+
+    padding: 1.5rem;
+  }
 `;
 
 export const Banner = styled.div`
@@ -33,6 +40,21 @@ export const Banner = styled.div`
     right: 7rem;
   }
 
+  @media (max-width: 1000px) {
+    width: 100%;
+    height: 18rem;
+
+    margin: 3rem 0 6.4rem 0;
+
+    > img {
+      width: 25rem;
+      height: 23rem;
+      bottom: 1.7rem;
+      right: 3rem;
+    }
+  }
+
+
 `;
 
 export const Slogan = styled.div`
@@ -54,6 +76,36 @@ export const Slogan = styled.div`
     font-weight: 400;
     font-size: 1.6rem;
   }
+
+  @media (max-width: 1000px) {
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 450px) {
+    h1 {
+      font-size: 1.4rem;
+    }
+
+    p {
+      font-size: .8rem;
+    }
+  }
 `;
 
 export const Menu = styled.div`
@@ -64,4 +116,9 @@ export const Menu = styled.div`
   margin-bottom: 8rem;
 
   width: 150rem;
+
+  @media (max-width: 1000px) {
+    max-width: 50rem;
+    gap: 1rem;
+  }
 `;

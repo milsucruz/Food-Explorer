@@ -8,6 +8,15 @@ export const Container = styled.div`
     font-size: 3.2rem;
     color: ${({theme}) => theme.COLORS.WHITE};
   }
+
+  @media (max-width: 1000px) {
+    padding-inline: 0;
+    > h2 {
+        font-size: 2.5rem;
+        margin: 0 0 2rem 2rem;
+        color: ${({theme}) => theme.COLORS.WHITE};
+    }
+  }
 `;
 
 export const Slider = styled.div`
@@ -53,4 +62,14 @@ export const Slider = styled.div`
     border: none;
     background: linear-gradient(90deg, rgba(0, 10, 15, 0.272541) 0%, #000A0F 100%);
   }  
+
+  @media (max-width: 1000px) {
+    .leftBtn{
+      display: none;
+    }
+
+    .rightBtn{
+      display: none;
+    }
+  }
 `;
