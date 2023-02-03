@@ -173,9 +173,11 @@ export function New() {
                   />
                 </div>
 
-                  <Button className="saveBtn" onClick={handleNewMeal} >
+                  <div className="btnWrapper">
+                    <Button className="saveBtn" onClick={handleNewMeal} >
                     <p>Salvar prato</p>
                   </Button>
+                  </div>
               
               </Form>
 

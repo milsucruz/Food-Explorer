@@ -25,6 +25,30 @@ export const Content = styled.div`
   .title {
     margin: 2.4rem 0 3.2rem 0;
  }
+
+
+ @media (max-width: 1000px) {
+  max-width: 50rem;
+  align-items: center;
+  padding: 3.2rem;
+
+  
+  header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 2rem;
+
+    .textBtn {
+      font-size: 1.7rem;
+
+      svg {
+        height: 1.7rem; 
+        width: 1.7rem;
+      }
+    }
+   }
+ }
 `;
 
 export const Form = styled.div`
@@ -34,6 +58,8 @@ export const Form = styled.div`
   flex-direction: column;
   gap: 3.2rem;
   margin-bottom: 10rem;
+
+  max-width: 100%;
 
   .inputWrapper {
     display: flex;
@@ -50,8 +76,6 @@ export const Form = styled.div`
   }
 
   .imageBox {
-   max-width: 23rem;
-
    #file {
      display: flex;
      flex-direction: column;
@@ -131,10 +155,60 @@ export const Form = styled.div`
     }
   }
 
-  .saveBtn {
-    margin-left: 90.9rem;
+  .btnWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: right;
   }
-  
+
+
+  @media (max-width: 1000px) {
+    .inputWrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      width: 100%;
+      padding: 2rem;
+    }
+
+    .imageBox {
+      width: 100%;
+
+      #file{
+        > div {
+          width: 100%;
+        }
+      }
+    } 
+    
+    .titleBox {
+      width: 100%;
+    }
+
+    .categoryBox {
+      width: 100%;
+    }
+
+    .priceBox {
+      width: 100%;
+    }
+
+    .textArea{
+      padding: 2rem;
+    }
+
+    .btnWrapper {
+      display: flex;
+
+      padding: 2rem;
+    }
+
+    .saveBtn {
+      width: 50rem;
+    }
+
+ }
 `;
 
 export const IngredientsSection = styled.div`
@@ -147,16 +221,29 @@ gap: 1.6rem;
   }
 
 .ingredientsBox {
-    display: flex;
-    align-items: center;
-    gap: 1.6rem;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    justify-content: flex-start;
     
-    height: 4.8rem;
+    gap: 1.6rem;
+
+    height: max-content;
     width: 83.7rem;
     padding: .8rem;
 
     border-radius: .8rem;
     
     background-color: ${({theme}) => theme.COLORS.BLACK_900};
+  }
+
+  @media (max-width: 1000px) {
+    width: 100%;
+
+    .ingredientsBox {
+      width: 100%;
+
+      display: grid;
+      grid-template-columns: auto auto;
+    }
   }
 `;
