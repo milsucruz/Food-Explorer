@@ -70,10 +70,6 @@ export function Header({ setMeals }) {
         )}
 
         <div className="menuNavigation">
-          
-          {user.isAdm ? 
-          (<a href="#"></a>) : (<a href="#">Meus Favoritos</a>)
-          }
 
           <Search>
             <label>

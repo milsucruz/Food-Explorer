@@ -49,7 +49,7 @@ export function Card({ meal }) {
           </button>
 
           <p className="productDescription" > {meal.description} </p>
-          <h1 className="productPrice" > {meal.price} </h1>
+          <h1 className="productPrice" > R$ {meal.price} </h1>
 
           {user.isAdm ? ("") :
           (
