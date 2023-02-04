@@ -83,8 +83,9 @@ export function Edit() {
 
     api.put(`/meals/${params.id}`, data);
   
-    alert("Prato cadastrado com sucesso!");
+    alert("Prato atualizado com sucesso!");
 
+    navigate("/")
   }
 
   async function fetchMeal() {
@@ -124,7 +125,7 @@ export function Edit() {
             <Content>
               <header>
                 <ButtonText title="Voltar" icon={AiOutlineLeft} className="textBtn" onClick={handleHome} />
-                <h1 className="title" >Adicionar prato</h1>
+                <h1 className="title" >Editar prato</h1>
               </header>
 
               <Form>

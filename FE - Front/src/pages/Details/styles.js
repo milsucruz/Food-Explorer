@@ -29,6 +29,19 @@ gap: 8rem;
 
 margin: 10rem 0 22rem 0 ;
 
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+animation: topdown 600ms;
+
 .meal img {
   width: 38.947rem;
   height: 38.947rem;

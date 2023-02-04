@@ -34,6 +34,19 @@ export const Banner = styled.div`
   background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
   border-radius: .8rem;
 
+  @keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+animation: topdown 600ms;
+
   > img {
     position: relative;
     bottom: 6.4rem;
@@ -116,6 +129,19 @@ export const Menu = styled.div`
   margin-bottom: 8rem;
 
   width: 150rem;
+
+  @keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+animation: topdown 600ms;
 
   @media (max-width: 1000px) {
     max-width: 50rem;

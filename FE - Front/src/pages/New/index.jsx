@@ -86,6 +86,7 @@ export function New() {
   
     alert("Prato cadastrado com sucesso!");
 
+    navigate("/")
   }
 
   function handleHome() {

@@ -7,12 +7,6 @@ export const Container = styled.header`
   justify-content: center;
 
   background-color: ${({theme}) => theme.COLORS.BACKGROUND_800};
-/* 
-  @media (max-width: 1000px) {
-    .Nav-bar {
-      display: none;
-    }
-  } */
 
 `;
 

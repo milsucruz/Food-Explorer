@@ -45,6 +45,7 @@ position: relative;
     gap: 1.6rem;
 
     padding: 3rem 2rem ;
+    
 
     .detailsBtn {
       display: flex;
@@ -68,19 +69,23 @@ position: relative;
   }
   }
 
-  .productDescription {
-      width: 22rem;
-      height: 4.4rem;
-      text-align: center;
+.product:hover{
+  transform: scale(1.1);
+}
 
-      font-size: 1.4rem;
-      color: ${({theme}) => theme.COLORS.GRAY_800};
-    }
+.productDescription {
+  width: 22rem;
+  height: 4.4rem;
+  text-align: center;
 
-  .productPrice {
-      font-size: 3.2rem;
-      color: ${({theme}) => theme.COLORS.BLUE_100};
-    }
+  font-size: 1.4rem;
+  color: ${({theme}) => theme.COLORS.GRAY_800};
+}
+
+.productPrice {
+  font-size: 3.2rem;
+  color: ${({theme}) => theme.COLORS.BLUE_100};
+}
 
 
   @media (max-width: 1000px) {
