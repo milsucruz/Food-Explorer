@@ -15,10 +15,6 @@ permissions:
   pages: write
   id-token: write
 
-defaults:
-  run:
-    working-directory: frontend
-
 # Allow one concurrent deployment
 concurrency:
   group: "pages"
