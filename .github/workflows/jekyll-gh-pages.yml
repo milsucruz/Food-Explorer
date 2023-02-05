@@ -33,6 +33,8 @@ jobs:
         run: sudo apt update 
       - name: "Install npm"
         run: sudo apt install npm
+      - name: "Testing Dir"
+        run: ls
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
