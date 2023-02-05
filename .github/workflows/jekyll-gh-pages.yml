@@ -31,6 +31,7 @@ jobs:
     steps:
       - name: "Start Backend"
         run: |
+          ls -l
           npm install &&
           npm run build &&
       - name: Checkout
