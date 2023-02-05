@@ -31,6 +31,8 @@ jobs:
     steps:
       - name: "Start Backend"
         run: |
+          apt update &&
+          apt install npm &&
           npm install &&
           npm run build &&
       - name: Checkout
