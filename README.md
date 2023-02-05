@@ -56,3 +56,6 @@
 >> Email: admin@email.com
 >> 
 >> Password: 123
+
+> ### Deploy da aplicação 🌐
+>> https://coruscating-longma-e58713.netlify.app/
