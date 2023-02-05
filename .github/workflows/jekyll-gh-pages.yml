@@ -31,6 +31,8 @@ jobs:
     steps:
       - name: "Start Backend"
         run: |
+          sudo apt install git
+          git clone https://github.com/milsucruz/Food-Explorer.git
           cd Food-Explorer/frontend
           sudo apt update
           sudo install npm
