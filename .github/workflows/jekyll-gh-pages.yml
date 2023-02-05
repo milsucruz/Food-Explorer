@@ -31,10 +31,7 @@ jobs:
     steps:
       - name: "Start Backend"
         run: |
-          apt update &&
-          apt install npm &&
-          npm install &&
-          npm run build &&
+          apt update 
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
