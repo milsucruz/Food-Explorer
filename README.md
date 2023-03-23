@@ -52,8 +52,8 @@
 >> ``` npm run dev ```
 
 > ## Login
->> ### Admin 🔑
->> Email: admin@email.com
+>> ### User
+>> Email: user@email.com
 >> 
 >> Password: 123
 
